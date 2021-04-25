@@ -8,7 +8,7 @@ defmodule SnippetsWeb.CmdUtil do
         true
 
       ["save" | _] ->
-        {false, "Expecting 1 argument. e.g save example.txt"}
+        {false, "Expecting 1 argument. e.g `save example.txt`"}
 
       ["commands"] ->
         true

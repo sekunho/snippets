@@ -1,0 +1,4 @@
+$cmd-buffer-height: 1.75rem;
+$navbar-height: 1.5rem;
+$body-height-without-cmd-buffer: calc(100vh - #{$navbar-height});
+$body-height-with-cmd-buffer: calc(100vh - #{$navbar-height + $cmd-buffer-height});

@@ -1,88 +1,9 @@
 @import "tailwindcss/base";
+@import "base/reset";
+@import "base/liveview";
+
 @import "tailwindcss/components";
+@import "components/components";
+
 @import "tailwindcss/utilities";
-
-* {
-  box-sizing: border-box;
-}
-
-$body-height-without-cmd-buffer: calc(100vh - 1.5rem);
-$body-height-with-cmd-buffer: calc(100vh - 3rem);
-
-.cmd-buffer {
-  @apply 
-  text-gruvbox-fg
-  flex
-  font-mono 
-  font-medium 
-  bg-gruvbox-bg1
-  px-2
-  h-6;
-
-  input {
-    @apply
-    w-full 
-    border-none
-    outline-none
-    bg-gruvbox-bg1;
-  }
-}
-
-.editor {
-  height: $body-height-without-cmd-buffer;
-
-  textarea {
-    @apply
-    font-mono 
-    font-medium 
-    text-gruvbox-fg 
-    overflow-y-auto;
-  }
-}
-
-.without-cmd {
-  height: $body-height-without-cmd-buffer;
-}
-
-.with-cmd {
-  height: $body-height-with-cmd-buffer;
-}
-
-.snippets-list {
-  @apply 
-  overflow-y-scroll 
-  bg-gruvbox-bg0_h 
-  hidden 
-  lg:block
-  divide-y 
-  divide-gruvbox-bg2
-  lg:w-2/6
-  xl:w-1/6;
-}
-
-/* LiveView specific classes for your customizations */
-.phx-no-feedback.invalid-feedback,
-.phx-no-feedback .invalid-feedback {
-  display: none;
-}
-
-.phx-click-loading {
-  opacity: 0.5;
-  transition: opacity 1s ease-out;
-}
-
-.phx-connected {
-  @apply flex-1;
-}
-
-.phx-disconnected{
-  cursor: wait;
-}
-.phx-disconnected *{
-  pointer-events: none;
-}
-
-.invalid-feedback {
-  color: #a94442;
-  display: block;
-}
+@import "utilities/variables";

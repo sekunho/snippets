@@ -1,0 +1,80 @@
+@import "utilities/variables";
+
+.cmd-buffer {
+  height: $cmd-buffer-height;
+
+  @apply 
+  text-gruvbox-fg
+  flex
+  font-mono 
+  font-medium 
+  bg-gruvbox-bg1
+  px-2;
+
+  span {
+    height: $cmd-buffer-height;
+    
+    @apply
+    flex
+    items-center;
+  }
+
+  input {
+    @apply
+    w-full 
+    border-none
+    outline-none
+    bg-gruvbox-bg1;
+  }
+}
+
+.editor {
+  height: $body-height-without-cmd-buffer;
+  overflow-wrap: normal;
+
+  div > textarea {
+    &::-moz-selection {
+      @apply bg-gruvbox-bg2 bg-opacity-50;
+    }
+
+    &::selection {
+      @apply bg-gruvbox-bg2 bg-opacity-50;
+    }
+
+    @apply
+    font-mono 
+    font-medium 
+    border-transparent
+    bg-transparent
+    text-gruvbox-fg 
+    w-full
+    outline-none
+    px-2
+    whitespace-pre
+    overflow-x-auto
+    overflow-y-auto
+    py-1
+    resize-none
+    placeholder-gruvbox-bg3
+    flex-1;
+  }
+}
+
+.without-cmd {
+  height: $body-height-without-cmd-buffer;
+}
+
+.with-cmd {
+  height: $body-height-with-cmd-buffer;
+}
+
+.snippets-list {
+  @apply 
+  overflow-y-auto
+  bg-gruvbox-bg0_h 
+  border-r
+  border-gruvbox-bg1
+  hidden 
+  divide-y
+  divide-gruvbox-bg2;
+}

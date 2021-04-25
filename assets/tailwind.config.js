@@ -20,6 +20,10 @@ module.exports = {
         'gruvbox-red': '#fb4934',
         'gruvbox-green': '#b8bb26'
       }),
+      inset: theme => ({
+        '1/6': '16.666667%',
+        '2/6': '33.333333%'
+      }),
       fontFamily: theme => ({
         mono: ['Fira Mono', 'monospace']
       })

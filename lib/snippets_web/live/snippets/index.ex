@@ -17,11 +17,16 @@ defmodule SnippetsWeb.SnippetsLive.Index do
     <Commands :if={{ @commands_modal_open }} />
     <div :on-window-keyup="cmd_buffer" class="editor">
       <div class="flex flex-1 {{ editor_height_class(@cmd_buffer_open) }}">
-        <div class="snippets-list {{ editor_height_class(@cmd_buffer_open) }} h-full">
-          <Item :for={{ _ <- 1..500 }} />
+        <div class="snippets-list lg:block lg:w-2/6 xl:w-1/6 {{ editor_height_class(@cmd_buffer_open) }} h-full">
+          <Item :for={{ _ <- 1..10 }} />
         </div>
-        <div class="{{ editor_height_class(@cmd_buffer_open) }} w-full lg:w-5/6 flex flex-col">
-          <textarea id="editor-field" phx-hook="EditorField" placeholder="IO.puts \"Hello, world!\"" class="h-full w-full outline-none px-2 bg-transparent resize-none placeholder-gruvbox-bg3 flex-1"/>
+
+        <div class="{{ editor_height_class(@cmd_buffer_open) }} z-10 w-full lg:w-4/6 xl:w-5/6 flex flex-col">
+          <textarea
+            id="editor-field"
+            wrap="off"
+            phx-hook="EditorField"
+            placeholder="IO.puts \"Hello, world!\""/>
         </div>
       </div>
 
@@ -31,6 +36,7 @@ defmodule SnippetsWeb.SnippetsLive.Index do
         :on-submit="execute_cmd"
         class="cmd-buffer">
         <span class="text-gruvbox-orange">:</span>
+
         <input
           id="cmd-buffer"
           name="cmd"
@@ -38,9 +44,10 @@ defmodule SnippetsWeb.SnippetsLive.Index do
           phx-debounce="200"
           type="text"
           class="{{ cmd_class(@is_cmd_valid) }} font-medium flex-1" />
-          <span :if={{ @cmd_msg }} class="pl-2 text-gruvbox-red">
-            {{ @cmd_msg }}
-          </span>
+
+        <span :if={{ @cmd_msg }} class="pl-2 text-gruvbox-red">
+          {{ @cmd_msg }}
+        </span>
       </form>
     </div>
     """
@@ -92,6 +99,7 @@ defmodule SnippetsWeb.SnippetsLive.Index do
         socket
         |> update(:cmd_buffer_open, fn c -> !c end)
         |> update(:cmd_msg, fn _ -> "" end)
+        |> update(:is_cmd_valid, fn _ -> nil end)
 
       _ ->
         socket

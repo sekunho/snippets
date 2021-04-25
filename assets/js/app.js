@@ -19,6 +19,8 @@ import { LiveSocket } from "phoenix_live_view"
 
 // Hooks
 let Hooks = {}
+let currLineNum = 1;
+
 Hooks.FocusElement = {
   mounted() {
     this.el.focus()
@@ -36,6 +38,7 @@ Hooks.CmdBuffer = {
 
 Hooks.EditorField = {
   mounted() {
+    // TODO: Use AlpineJS instead for some DOM conveniences
     this.el.focus()
   }
 }
