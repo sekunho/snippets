@@ -1,0 +1,15 @@
+<header>
+  <nav class="bg-gruvbox-bg2 font-mono pl-2 h-6 border-red flex justify-between">
+    <%= live_patch "snippets", to: Routes.snippets_index_path(@conn, :index),  class: "text-gruvbox-fg font-medium" %>
+
+    <div class="flex items-center space-x-4 pr-2">
+      <%= live_patch "FAQ",
+        to: Routes.snippets_index_path(@conn, :index),
+        class: "text-sm text-gruvbox-fg font-medium underline" %>
+
+      <%= live_patch "Login/Register",
+        to: Routes.snippets_index_path(@conn, :index),
+        class: "text-sm text-gruvbox-fg font-medium underline" %>
+    </div>
+  </nav>
+</header>

@@ -1,26 +1,9 @@
 @import "tailwindcss/base";
+@import "base/reset";
+@import "base/liveview";
+
 @import "tailwindcss/components";
+@import "components/components";
+
 @import "tailwindcss/utilities";
-
-/* LiveView specific classes for your customizations */
-.phx-no-feedback.invalid-feedback,
-.phx-no-feedback .invalid-feedback {
-  display: none;
-}
-
-.phx-click-loading {
-  opacity: 0.5;
-  transition: opacity 1s ease-out;
-}
-
-.phx-disconnected{
-  cursor: wait;
-}
-.phx-disconnected *{
-  pointer-events: none;
-}
-
-.invalid-feedback {
-  color: #a94442;
-  display: block;
-}
+@import "utilities/variables";

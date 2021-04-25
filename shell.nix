@@ -10,13 +10,12 @@ let
   elixir = beam.packages.erlangR23.elixir_1_11;
   podman = pkgs.podman;
   nodejs = nodejs-14_x;
-  doctl = unstable.doctl;
 in
 
 mkShell {
   LOCALE_ARCHIVE_2_27 = "${glibcLocales}/lib/locale/locale-archive";
 
-  buildInputs = [cacert git erlang elixir podman nodejs slirp4netns doctl python38]
+  buildInputs = [cacert git erlang elixir podman nodejs slirp4netns python38]
     ++ optional stdenv.isLinux libnotify
     ++ optional stdenv.isLinux inotify-tools;
 
@@ -38,7 +37,7 @@ mkShell {
     echo -e "\nAlmost there. The following steps are missing:"
     echo -e "\n    $ mix setup"
 
-    echo -e "\nStart Scribe with:"
+    echo -e "\nStart Snippets with:"
     echo -e "\n    $ mix phx.server"
   fi
 

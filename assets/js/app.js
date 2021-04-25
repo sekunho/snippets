@@ -13,15 +13,41 @@ import "../css/app.scss"
 //     import socket from "./socket"
 //
 import "phoenix_html"
-import {Socket} from "phoenix"
+import { Socket } from "phoenix"
 import topbar from "topbar"
-import {LiveSocket} from "phoenix_live_view"
+import { LiveSocket } from "phoenix_live_view"
+
+// Hooks
+let Hooks = {}
+let currLineNum = 1;
+
+Hooks.FocusElement = {
+  mounted() {
+    this.el.focus()
+  }
+}
+
+Hooks.CmdBuffer = {
+  mounted() {
+    this.el.focus()
+  },
+  destroyed() {
+    document.getElementById("editor-field").focus()
+  }
+}
+
+Hooks.EditorField = {
+  mounted() {
+    // TODO: Use AlpineJS instead for some DOM conveniences
+    this.el.focus()
+  }
+}
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
-let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
+let liveSocket = new LiveSocket("/live", Socket, { hooks: Hooks, params: { _csrf_token: csrfToken } })
 
 // Show progress bar on live navigation and form submits
-topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
+topbar.config({ barColors: { 0: "#fe8019" }, shadowColor: "rgba(0, 0, 0, .3)" })
 window.addEventListener("phx:page-loading-start", info => topbar.show())
 window.addEventListener("phx:page-loading-stop", info => topbar.hide())
 

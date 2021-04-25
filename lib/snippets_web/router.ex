@@ -20,7 +20,7 @@ defmodule SnippetsWeb.Router do
   scope "/", SnippetsWeb do
     pipe_through :browser
 
-    live "/", PageLive, :index
+    live "/", SnippetsLive.Index, :index
   end
 
   # Other scopes may use custom stacks.
