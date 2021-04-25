@@ -1,4 +1,4 @@
-defmodule SnippetsWeb.Components.Commands do
+defmodule SnippetsWeb.Components.CommandsModal do
   use Surface.Component
 
   def render(assigns) do

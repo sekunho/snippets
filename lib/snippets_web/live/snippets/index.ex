@@ -1,10 +1,12 @@
 defmodule SnippetsWeb.SnippetsLive.Index do
   use Surface.LiveView
-
-  import SnippetsWeb.CmdUtil,
+  import SnippetsWeb.Utils.Mount
+  import SnippetsWeb.Utils.Cmd,
     only: [recognized_command?: 1, editor_height_class: 1, cmd_class: 1, parse_command: 1]
 
-  alias SnippetsWeb.Components.{Item, Commands}
+  alias SnippetsWeb.Router.Helpers, as: Routes
+  alias Surface.Components.LivePatch
+  alias SnippetsWeb.Components.{Item, CommandsModal}
 
   data cmd_buffer_open, :boolean, default: false
   data commands_modal_open, :boolean, default: false
@@ -12,13 +14,22 @@ defmodule SnippetsWeb.SnippetsLive.Index do
   data cmd_msg, :string, default: ""
 
   @impl true
+  def mount(_, session, socket) do
+    {:ok, assign_defaults(socket, session)}
+  end
+
+  @impl true
   def render(assigns) do
     ~H"""
-    <Commands :if={{ @commands_modal_open }} />
+    <CommandsModal :if={{ @commands_modal_open }} />
     <div :on-window-keyup="cmd_buffer" class="editor">
       <div class="flex flex-1 {{ editor_height_class(@cmd_buffer_open) }}">
         <div class="snippets-list lg:block lg:w-2/6 xl:w-1/6 {{ editor_height_class(@cmd_buffer_open) }} h-full">
-          <Item :for={{ _ <- 1..10 }} />
+          <div class="flex flex-col items-center mt-8 space-y-4">
+            <span class="text-center text-gruvbox-fg">Want to keep track of your snippets?</span>
+            <LivePatch label="Sign in" to={{ Routes.user_session_path(@socket, :new) }} class="text-center bg-gruvbox-orange px-2 py-2 w-1/2 rounded-md text-gruvbox-bg0_h text-sm font-mono font-medium hover:bg-opacity-80 focus:outline-none focus:ring focus:border-blue-300" />
+          </div>
+          <Item :if={{ @current_user }} :for={{ _ <- 1..10 }} />
         </div>
 
         <div class="{{ editor_height_class(@cmd_buffer_open) }} z-10 w-full lg:w-4/6 xl:w-5/6 flex flex-col">

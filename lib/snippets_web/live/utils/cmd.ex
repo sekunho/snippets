@@ -1,4 +1,4 @@
-defmodule SnippetsWeb.CmdUtil do
+defmodule SnippetsWeb.Utils.Cmd do
   @spec recognized_command?(binary) :: boolean | {false, binary}
   def recognized_command?(cmd) when is_binary(cmd) do
     cmd
