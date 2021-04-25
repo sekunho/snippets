@@ -17,7 +17,7 @@ $body-height: calc(100vh - 1.5rem);
 .editor {
   height: $body-height;
 
-  @apply font-mono font-medium text-gruvbox-fg;
+  @apply font-mono font-medium text-gruvbox-fg overflow-y-auto;
 }
 
 /* LiveView specific classes for your customizations */
