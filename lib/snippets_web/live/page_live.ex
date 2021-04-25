@@ -1,9 +1,12 @@
 defmodule SnippetsWeb.PageLive do
-  use SnippetsWeb, :live_view
+  use Surface.LiveView
+
+  data query, :string, default: ""
+  data results, :map, default: %{}
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, query: "", results: %{})}
+    {:ok, socket}
   end
 
   @impl true
