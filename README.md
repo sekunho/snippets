@@ -4,7 +4,7 @@ Snippets is a simple code snippets manager.
 
 - **Simple**: It's for code snippets. I'm not gonna turn this into a social media platform.
 - **Privacy-focused**: You don't have to give your email to make an account.
-- **Programmer-oriented**: You ever get annoyed of having to click "raw" to view code most familiar to you? Yeah, me too.
+- **Programmer-oriented**: You ever get annoyed of having to click "raw" to view code in a format most familiar to you? Yeah, me too.
 
 ## Getting Started
 
