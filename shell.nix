@@ -37,7 +37,7 @@ mkShell {
     echo -e "\nAlmost there. The following steps are missing:"
     echo -e "\n    $ mix setup"
 
-    echo -e "\nStart Scribe with:"
+    echo -e "\nStart Snippets with:"
     echo -e "\n    $ mix phx.server"
   fi
 

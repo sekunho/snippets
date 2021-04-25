@@ -1,5 +1,11 @@
 <header>
-  <nav class="bg-gruvbox-bg1 font-mono pl-2 h-6">
-    <span class="text-gruvbox-fg font-medium">Snippets</span>
+  <nav class="bg-gruvbox-bg2 font-mono pl-2 h-6">
+    <%= live_patch "snippets", to: Routes.snippets_index_path(@conn, :index),  class: "text-gruvbox-fg font-medium" %>
+
+    <div>
+      <span class="text-gruvbox-fg font-medium">Snippets</span>
+      <span class="text-gruvbox-fg font-medium">Snippets</span>
+      <span class="text-gruvbox-fg font-medium">Snippets</span>
+    </div>
   </nav>
 </header>
