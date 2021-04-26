@@ -1,33 +1,5 @@
 @import "utilities/variables";
 
-.cmd-buffer {
-  height: $cmd-buffer-height;
-
-  @apply 
-  text-gruvbox-fg
-  flex
-  font-mono 
-  font-medium 
-  bg-gruvbox-bg1
-  px-2;
-
-  span {
-    height: $cmd-buffer-height;
-    
-    @apply
-    flex
-    items-center;
-  }
-
-  input {
-    @apply
-    w-full 
-    border-none
-    outline-none
-    bg-gruvbox-bg1;
-  }
-}
-
 .editor {
   height: $body-height-without-cmd-buffer;
   overflow-wrap: normal;
@@ -49,11 +21,10 @@
     text-gruvbox-fg 
     w-full
     outline-none
-    px-2
+    p-4
     whitespace-pre
     overflow-x-auto
     overflow-y-auto
-    py-1
     resize-none
     placeholder-gruvbox-bg3
     flex-1;
@@ -71,7 +42,7 @@
 .snippets-list {
   @apply 
   overflow-y-auto
-  bg-gruvbox-bg0_h 
+  bg-gruvbox-bg
   border-r
   border-gruvbox-bg1
   hidden 

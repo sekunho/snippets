@@ -1,0 +1,28 @@
+@import "utilities/variables";
+
+.airline {
+  height: $airline-height;
+
+  @apply 
+  text-gruvbox-fg
+  flex
+  font-mono 
+  font-medium 
+  bg-gruvbox-bg1;
+
+  span {
+    height: $airline-height;
+    
+    @apply
+    flex
+    items-center;
+  }
+
+  input {
+    @apply
+    w-full 
+    border-none
+    outline-none
+    bg-gruvbox-bg1;
+  }
+}

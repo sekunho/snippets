@@ -16,6 +16,7 @@ module.exports = {
         'gruvbox-bg4': '#7c6f64',
         'gruvbox-fg': '#ebdbb2',
         'gruvbox-gray': '#928374',
+        'gruvbox-gray1': '#a89985',
         'gruvbox-orange': '#fe8019',
         'gruvbox-red': '#fb4934',
         'gruvbox-green': '#b8bb26'

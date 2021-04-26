@@ -16,6 +16,7 @@ import "phoenix_html"
 import { Socket } from "phoenix"
 import topbar from "topbar"
 import { LiveSocket } from "phoenix_live_view"
+import Prism from "./prism"
 
 // Hooks
 let Hooks = {}
@@ -27,12 +28,26 @@ Hooks.FocusElement = {
   }
 }
 
+Hooks.HighlightCode = {
+  mounted() {
+    Prism.highlightAllUnder(this.el)
+  },
+  updated() {
+    Prism.highlightAllUnder(this.el)
+  }
+}
+
 Hooks.CmdBuffer = {
   mounted() {
     this.el.focus()
   },
   destroyed() {
-    document.getElementById("editor-field").focus()
+    console.log("DESTROYED")
+
+    let codeContent = document.getElementById("code-content")
+    Prism.highlightAllUnder(codeContent)
+
+    document.getElementById("editor-field")?.focus()
   }
 }
 
