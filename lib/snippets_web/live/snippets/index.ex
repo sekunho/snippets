@@ -120,11 +120,11 @@ defmodule SnippetsWeb.SnippetsLive.Index do
     <div :on-window-keydown="process_key" class="editor">
       <div class="flex flex-1 {{ editor_height_class(@is_airline_open) }}">
         <div class="snippets-list lg:block lg:w-2/6 xl:w-1/6 {{ editor_height_class(@is_airline_open) }} h-full">
-          <div class="flex flex-col items-center mt-8 space-y-4 px-4">
+          <div :if={{ @current_user }} class="flex flex-col items-center mt-8 space-y-4 px-4">
             <span class="text-center text-gruvbox-fg">Want to keep track of your snippets?</span>
             <LivePatch label="Sign in" to={{ Routes.user_session_path(@socket, :new) }} class="text-center bg-gruvbox-orange px-2 py-2 w-1/2 rounded-md text-gruvbox-bg0_h text-sm font-mono font-medium hover:bg-opacity-80 focus:outline-none focus:ring focus:border-blue-300" />
           </div>
-          <Item :if={{ @current_user }} :for={{ _ <- 1..10 }} />
+          <Item :if={{ !@current_user }} :for={{ _ <- 1..5 }} />
         </div>
 
         <div id="editor" phx-hook="HighlightCode" class="{{ editor_height_class(@is_airline_open) }} z-10 w-full lg:w-4/6 xl:w-5/6 flex flex-col">
@@ -151,16 +151,18 @@ defmodule SnippetsWeb.SnippetsLive.Index do
         :if={{ @is_cmd_buffer_open }}
         :on-change="recognize_cmd"
         :on-submit="execute_cmd"
-        class="cmd-buffer flex">
-          <span class="text-gruvbox-orange">:</span>
+        class="cmd-buffer flex justify-between w-full">
+          <div class="flex">
+            <span class="text-gruvbox-orange">:</span>
 
-          <input
-            id="cmd-buffer"
-            name="cmd"
-            phx-hook="CmdBuffer"
-            phx-debounce="200"
-            type="text"
-            class="{{ cmd_class(@is_cmd_valid) }} font-medium flex-1" />
+            <input
+              id="cmd-buffer"
+              name="cmd"
+              phx-hook="CmdBuffer"
+              phx-debounce="200"
+              type="text"
+              class="{{ cmd_class(@is_cmd_valid) }} font-medium flex-1" />
+          </div>
 
           <span :if={{ @cmd_msg }} class="pl-2 text-gruvbox-red">
             {{ @cmd_msg }}
