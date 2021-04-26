@@ -6,6 +6,8 @@ Snippets is a simple code snippets manager.
 - **Privacy-focused**: You don't have to give your email to make an account.
 - **Programmer-oriented**: You ever get annoyed of having to click "raw" to view code in a format most familiar to you? Yeah, me too.
 
+![img.png](image.png)
+
 ## Getting Started
 
 Note: This was only tested for Linux. macOS and Windows are unknown territories.
