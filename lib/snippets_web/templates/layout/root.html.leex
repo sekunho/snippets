@@ -9,9 +9,10 @@
     <link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://prismjs.com/plugins/line-numbers/prism-line-numbers.css">
     <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
-  <body class="bg-gruvbox-bg">
+  <body class="bg-gruvbox-bg0_h">
     <%= render "navbar.html", assigns %>
     <%= @inner_content %>
   </body>
